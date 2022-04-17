@@ -1,7 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:aleman_stations/models/tablable.dart';
 import 'package:flutter/foundation.dart';
+
+import 'package:aleman_stations/utilities/storage_API/table.dart';
 
 class Customer extends Tablable with ChangeNotifier {
   static const String ID = "id";

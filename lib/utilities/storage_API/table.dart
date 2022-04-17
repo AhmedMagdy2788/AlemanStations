@@ -1,10 +1,13 @@
 import 'dart:developer';
 
-import 'package:aleman_stations/models/tablable.dart';
 import 'package:aleman_stations/utilities/storage_API/header.dart';
 import 'package:aleman_stations/utilities/storage_API/storage_handler.dart';
 
 import '../../models/customer.dart';
+
+abstract class Tablable {
+  Map<String, dynamic> get toMap;
+}
 
 abstract class Table<Tablable> {
   final String tblName;

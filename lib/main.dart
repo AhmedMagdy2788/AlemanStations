@@ -4,12 +4,12 @@ import 'package:aleman_stations/utilities/storage_API/storage_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:localize_and_translate/localize_and_translate.dart';
-import 'package:print_color/print_color.dart';
+// import 'package:print_color/print_color.dart';
 
 import '../theme/app_themes.dart';
 import './screens/customers_screen.dart';
 import './providers/customers_provider.dart';
-import './models/customer.dart';
+// import './models/customer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

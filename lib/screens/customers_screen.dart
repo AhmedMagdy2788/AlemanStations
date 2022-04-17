@@ -1,7 +1,5 @@
 // ignore_for_file: constant_identifier_names
 
-import 'dart:developer';
-
 import 'package:aleman_stations/models/switch_theme_mode_widget.dart';
 import 'package:aleman_stations/theme/app_themes.dart';
 import 'package:aleman_stations/utilities/storage_API/storage_handler.dart';

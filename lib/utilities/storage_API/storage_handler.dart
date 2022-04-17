@@ -1,11 +1,10 @@
 import 'dart:developer';
 
-import 'package:aleman_stations/models/customer.dart';
+// import 'package:aleman_stations/models/customer.dart';
 import 'package:aleman_stations/utilities/db/db_header.dart';
 import 'package:aleman_stations/utilities/json/json_providers.dart';
 import 'package:aleman_stations/utilities/storage_API/table.dart';
 import 'package:flutter/foundation.dart';
-import '../../models/tablable.dart';
 import '../db/db_server.dart';
 
 class StorageHandler with ChangeNotifier {
