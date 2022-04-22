@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:aleman_stations/models/switch_theme_mode_widget.dart';
+import 'package:aleman_stations/widgets/switch_theme_mode_widget.dart';
 import 'package:aleman_stations/theme/app_themes.dart';
 import 'package:aleman_stations/utilities/storage_API/storage_handler.dart';
 import 'package:flutter/material.dart';
@@ -186,6 +186,8 @@ class CustomersScreenState extends State<CustomersScreen> {
   Widget build(BuildContext context) {
     final text =
         Provider.of<ThemeProvider>(context).isDarkMode ? 'Dark' : 'Light';
+    storageHandler.createTable('customers_tbl', []);
+    storageHandler.populateTableFromJson('customers_tbl');
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).backgroundColor,

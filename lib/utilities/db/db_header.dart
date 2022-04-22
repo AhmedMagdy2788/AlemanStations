@@ -1,3 +1,4 @@
+//TODO:we need to impliment the decorated pattern for the DBHeader
 class DBHeader {
   String name;
   String type;

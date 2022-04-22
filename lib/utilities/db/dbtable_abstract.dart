@@ -6,7 +6,7 @@ import 'package:mysql1/mysql1.dart';
 
 import 'db_header.dart';
 
-class DBTable<T> {
+abstract class DBTable<T> {
   static const String COL_NAME = 'col_name';
   static const String COL_TYPE = 'col_type';
   static const String COL_CONSTRAINS = 'col_constrains';
@@ -22,17 +22,9 @@ class DBTable<T> {
     this.rowsCount = 0,
   });
 
-  Future<void> createTable(MySqlConnection conn) async {
-    try {} catch (e) {
-      log(e.toString());
-    }
-  }
+  String get createTableQuary;
 
-  Future<void> addRecord(T recordObject) async {
-    try {} catch (e) {
-      log(e.toString());
-    }
-  }
+  String addRecord(T recordObject);
 
   Future<List<T>> getAllRecords() async {
     try {

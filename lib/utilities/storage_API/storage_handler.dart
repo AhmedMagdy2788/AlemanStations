@@ -1,8 +1,11 @@
 import 'dart:developer';
 
 // import 'package:aleman_stations/models/customer.dart';
+import 'package:aleman_stations/models/marketing_company.dart';
 import 'package:aleman_stations/utilities/db/db_header.dart';
+import 'package:aleman_stations/utilities/db/dbtable_abstract.dart';
 import 'package:aleman_stations/utilities/json/json_providers.dart';
+import 'package:aleman_stations/utilities/storage_API/storage_event.dart';
 import 'package:aleman_stations/utilities/storage_API/table.dart';
 import 'package:flutter/foundation.dart';
 import '../db/db_server.dart';
@@ -13,10 +16,11 @@ class StorageHandler with ChangeNotifier {
   late JsonProviders _jsonProviders;
 
   Future<bool> initStorages() async {
+    log('initializing db server and get json data');
     _dbServer = DBServer(
       host: "localhost",
       port: 3306,
-      dbName: "Aleman_db",
+      dbName: "aleman_db",
       user: "root",
       password: "Admin@div88",
     );
@@ -34,7 +38,22 @@ class StorageHandler with ChangeNotifier {
     }
   }
 
-  Future<bool> createTable(String tblName, headers) async {
+  Future<bool> populateTableFromJson(String tblName) async {
+    try {
+      List<Tablable> customers = await _jsonProviders.getCustomers();
+      log('numb. of customers = ${customers.length}');
+      Stream<Event> stream = await _dbServer.populateTable(customers);
+      stream.listen((event) {
+        log(event.toString());
+      });
+      return true;
+    } catch (e) {
+      log(e.toString());
+      return false;
+    }
+  }
+
+  Future<bool> createTable(String tblName, List<DBHeader> headers) async {
     try {
       final result = await _dbServer.addTable(tblName, headers);
       return result;

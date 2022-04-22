@@ -138,3 +138,66 @@ class MyApp extends StatelessWidget {
 //     );
 //   }
 // }
+/*
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
+import 'dart:async';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Flutter Demo',
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  StreamController<String> streamController = StreamController();
+
+  void newMessage(int number, String message) {
+    final duration = Duration(seconds: number);
+    Timer.periodic(duration, (Timer t) => streamController.add(message));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    streamController.stream.listen((messages) => log(messages));
+    newMessage(1, 'You got a message!');
+  }
+
+  @override
+  void dispose() {
+    streamController.close();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(15),
+          child: const Text('Streams Example'),
+        ),
+      ),
+    );
+  }
+}
+*/
